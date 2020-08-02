@@ -1,20 +1,10 @@
-import Audio from "./audio"
+import ATweet from "../components/ATweet"
 
-export default function Post({ post, isNew, isSocial, isFull }) {
-	const newPrompt = isNew ? (
-		<img
-			src="https://podofmadness.com/assets/new.gif"
-			style={{
-				marginRight: ".4em",
-			}}
-		/>
-	) : (
-		""
-	)
+export default function SocialPrompt({ tweetUrl }) {
 	return (
-		<br />
-		<h4 className="pink">
-			Join us on Twitter for this Episode's Prompt
-		</h4>
+		<>
+			<h4 className="pink">Join us on Twitter for this Episode's Prompt</h4>
+			<ATweet twitterUrl={tweetUrl} />
+		</>
 	)
 }

@@ -4,7 +4,7 @@ import { getSortedPostsData } from "../lib/posts"
 import ATweet from "../components/ATweet"
 import Post from "../components/post"
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData, allSocialData }) {
 	const jsonLD = {
 		"@context": "http://schema.org",
 
@@ -51,6 +51,26 @@ export default function Home({ allPostsData }) {
 				url: "https://podofmadness.com/assets/logo-white-bg.png",
 			},
 		},
+	}
+	let morePosts
+	if (allPostsData.length > 1) {
+		var postList = allPostsData.map((aPost) => {
+			return (
+				<li>
+					<a href="#">{aPost.title}</a>
+				</li>
+			)
+		})
+		delete postList[0]
+		morePosts = (
+			<React.Fragment>
+				<h4>Previous Episodes</h4>
+				<ul>{postList}</ul>
+				<h4>More episodes coming soon!</h4>
+			</React.Fragment>
+		)
+	} else {
+		morePosts = <h4>More episodes coming soon!</h4>
 	}
 	const jsonLDAsString = JSON.stringify(jsonLD)
 	return (
@@ -237,67 +257,19 @@ export default function Home({ allPostsData }) {
 					</div>
 					<div className="row main-content">
 						<div className="span6">
-							<Post post={allPostsData[0]} isNew={true} isFull={false} />
-							<br />
-							<h4 className="pink">
-								Join us on Twitter for this Episode's Prompt
-							</h4>
-							<blockquote className="twitter-tweet">
-								<p lang="en" dir="ltr">
-									My friend Forrest was diagnosed with the coronavirus. So,
-									talking about zombie movies on the inaugural episode of the
-									<a href="https://twitter.com/podofmadness?ref_src=twsrc%5Etfw">
-										@podofmadness
-									</a>
-									horror podcast was a no-brainer. Leave your fEeEed-back
-									below...
-									<a href="https://t.co/7UjItYXKT4">
-										pic.twitter.com/7UjItYXKT4
-									</a>
-								</p>
-								&mdash; podofmadness (@podofmadness)
-								<a href="https://twitter.com/podofmadness/status/1244388735782916098?ref_src=twsrc%5Etfw">
-									March 29, 2020
-								</a>
-							</blockquote>
+							<Post
+								post={allPostsData[0]}
+								isNew={true}
+								isFull={false}
+								isSocial={true}
+								isFront={true}
+							/>
 						</div>
 						<div className="span4">
 							<h4>Listen to our Social SoundBites:</h4>
-							<ATweet twitterUrl="https://twitter.com/podofmadness/status/1259558869891788801?ref_src=twsrc%5Etfw" />
-							<blockquote className="twitter-tweet">
-								<p lang="en" dir="ltr">
-									Host
-									<a href="https://twitter.com/jgasspoore?ref_src=twsrc%5Etfw">
-										@jgasspoore
-									</a>
-									asks her mom the age old question: If you were Mrs. Voorhees
-									and I was Jason from Friday The 13th... would you have killed
-									for me? Happy Mother&#39;s Day. 💐
-									<a href="https://t.co/TP7GKZfHLD">
-										pic.twitter.com/TP7GKZfHLD
-									</a>
-								</p>
-								&mdash; podofmadness (@podofmadness)
-								<a href="https://twitter.com/podofmadness/status/1259558869891788801?ref_src=twsrc%5Etfw">
-									May 10, 2020
-								</a>
-							</blockquote>
+							<ATweet twitterUrl={allSocialData[0].socialPrompt} />
 						</div>
-						<div className="span2">
-							<h4>Previous Episodes</h4>
-							<ul>
-								<li>
-									<a href="#">New Episode</a>
-								</li>
-								<li>
-									<a href="#">New Episode</a>
-								</li>
-								<li>
-									<a href="#">New Episode</a>
-								</li>
-							</ul>
-							<h4>More episodes coming soon!</h4>
-						</div>
+						<div className="span2">{morePosts}</div>
 					</div>
 				</div>
 			</main>
@@ -327,11 +299,13 @@ export default function Home({ allPostsData }) {
 }
 
 export async function getStaticProps() {
-	const allPostsData = getSortedPostsData()
+	const allPostsData = getSortedPostsData("episode")
+	const allSocialData = getSortedPostsData("socialSoundBite")
 	console.log("allPostsData", allPostsData[0])
 	return {
 		props: {
 			allPostsData,
+			allSocialData,
 		},
 	}
 }
