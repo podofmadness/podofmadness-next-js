@@ -1,13 +1,128 @@
 import Head from "next/head"
 import Link from "next/link"
 import { getSortedPostsData } from "../lib/posts"
+import ATweet from "../components/ATweet"
 
 export default function Home({ allPostsData }) {
+	const jsonLD = {
+		"@context": "http://schema.org",
+
+		"@type": "CollectionPage",
+
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": "https://podofmadness.com",
+		},
+		headline: "Pod of Madness.",
+		datePublished: "2020-06-22 7:00:51 -0400",
+		dateModified: "2018-06-22 7:00:51 -0400",
+		description:
+			"A horror-comedy podcast that makes about as much sense as the genre itself.",
+		isPartOf: {
+			"@type": ["CreativeWork", "Product", "Blog"],
+			name: "Pod of Madness",
+			productID: "https://podofmadness.com",
+		},
+		image: ["https://podofmadness.com/assets/logo-white-bg.png"],
+
+		isAccessibleForFree: true,
+		author: {
+			"@type": "Person",
+			name: "Jordan Gass-Poore'",
+			description: "Jordan Gass-Poore' is a journalist and podcaster.",
+			sameAs: "http://jgasspoore.com/",
+			image: {
+				"@type": "ImageObject",
+				url:
+					"https://pbs.twimg.com/profile_images/1237825194225553410/vwm8F8EE_400x400.jpg",
+			},
+			givenName: "Jordan",
+			familyName: "Gass-Poore'",
+		},
+		publisher: {
+			"@type": "Project",
+			name: "Pod of Madness",
+			url: "https://podofmadness.com",
+			foundingDate: "2020-1-01",
+			logo: {
+				"@type": "ImageObject",
+
+				url: "https://podofmadness.com/assets/logo-white-bg.png",
+			},
+		},
+	}
+	const jsonLDAsString = JSON.stringify(jsonLD)
 	return (
 		<div className="container">
 			<Head>
-				<title>Create Next App</title>
-				<link rel="icon" href="/favicon.ico" />
+				<title>Pod of Madness</title>
+				<link key="meta-icon" rel="icon" href="/favicon.ico" />
+				<meta
+					key="meta-keywords"
+					name="keywords"
+					content="horror, zombies, covid-19, coronavirus, podcast"
+				></meta>
+				<meta key="meta-author" content="Jordan Gass-Poore'"></meta>
+				<meta
+					key="meta-og-title"
+					property="og:title"
+					content="Pod of Madness"
+				></meta>
+				<meta
+					key="meta-og-site_name"
+					property="og:site_name"
+					content="The Pod of Madness Podcast"
+				/>
+				<meta
+					key="meta-og-description"
+					property="og:description"
+					content="Life is Mad."
+				/>
+				<meta
+					key="meta-og-url"
+					property="og:url"
+					content="http://podofmadness.com"
+				/>
+				<meta key="meta-og-locale" property="og:locale" content="en_US" />
+				<meta
+					key="meta-twitter-site"
+					name="twitter:site"
+					content="@podofmadness"
+				/>
+				<meta
+					key="meta-twitter-description"
+					name="twitter:description"
+					content="Life is Mad."
+				/>
+				<meta
+					key="meta-twitter-card"
+					name="twitter:card"
+					content="summary_large_image"
+				/>
+				<meta
+					key="meta-twitter-creator"
+					name="twitter:creator"
+					content="@chronotope"
+				/>
+				<meta
+					key="meta-twitter-title"
+					name="twitter:title"
+					content="Pod of Madness"
+				/>
+				<meta
+					key="meta-og-image"
+					property="og:image"
+					content="https://podofmadness.com/assets/logo-white-bg.png"
+				/>
+				<meta
+					key="meta-twitter-image"
+					name="twitter:image"
+					content="https://podofmadness.com/assets/logo-white-bg.png"
+				/>
+
+				<script key="meta-ld-json" type="application/ld+json">
+					{jsonLDAsString}
+				</script>
 			</Head>
 
 			<main>
@@ -24,6 +139,11 @@ export default function Home({ allPostsData }) {
 					Get started by editing <code>pages/index.js</code>
 				</p>
 				<section>
+					<ATweet
+						twitterUrl={
+							"https://twitter.com/podofmadness/status/1259558869891788801?ref_src=twsrc%5Etfw"
+						}
+					/>
 					<p>
 						Posts:
 						<ul>
