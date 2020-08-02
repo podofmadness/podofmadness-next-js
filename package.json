@@ -25,6 +25,7 @@
     "remark-html": "^11.0.2",
     "rss": "^1.2.2",
     "sass": "^1.26.10",
+    "showdown": "^1.9.1",
     "tailwindcss": "^1.4.6"
   }
 }

@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import { getSortedPostsData } from "../lib/posts"
 import ATweet from "../components/ATweet"
+import Post from "../components/post"
 
 export default function Home({ allPostsData }) {
 	const jsonLD = {
@@ -125,34 +126,38 @@ export default function Home({ allPostsData }) {
 				</script>
 			</Head>
 			<nav>
-				<div class="navbar navbar-fixed-top">
-					<div class="navbar-inner">
-						<div class="container">
+				<div className="navbar navbar-fixed-top">
+					<div className="navbar-inner">
+						<div className="container">
 							<a
-								class="btn btn-navbar"
+								className="btn btn-navbar"
 								data-toggle="collapse"
 								data-target=".nav-collapse"
 							>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
 							</a>
-							<a class="brand" href="">
+							<a className="brand" href="">
 								Pod of Madness
 							</a>
-							<div class="nav-collapse" id="main-menu">
-								<ul class="nav" id="main-menu-left">
-									<li class="dropdown" id="preview-menu">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											Subscribe <b class="caret"></b>
+							<div className="nav-collapse" id="main-menu">
+								<ul className="nav" id="main-menu-left">
+									<li className="dropdown" id="preview-menu">
+										<a
+											className="dropdown-toggle"
+											data-toggle="dropdown"
+											href="#"
+										>
+											Subscribe <b className="caret"></b>
 										</a>
-										<ul class="dropdown-menu">
+										<ul className="dropdown-menu">
 											<li>
 												<a target="_blank" href="feed.xml">
 													RSS
 												</a>
 											</li>
-											<li class="divider"></li>
+											<li className="divider"></li>
 											<li>
 												<a
 													target="_blank"
@@ -182,7 +187,7 @@ export default function Home({ allPostsData }) {
 										</a>
 									</li>
 								</ul>
-								<ul class="nav pull-right" id="main-menu-right">
+								<ul className="nav pull-right" id="main-menu-right">
 									<li>
 										<a
 											rel="tooltip"
@@ -191,7 +196,7 @@ export default function Home({ allPostsData }) {
 											title="Static Web Hosting"
 										>
 											A production of Local Switchboard
-											<i class="icon-share-alt"></i>
+											<i className="icon-share-alt"></i>
 										</a>
 									</li>
 								</ul>
@@ -202,25 +207,25 @@ export default function Home({ allPostsData }) {
 			</nav>
 
 			<main>
-				<div class="container">
-					<header class="jumbotron subhead" id="overview">
-						<div class="row">
-							<div class="span6">
+				<div className="container">
+					<header className="jumbotron subhead" id="overview">
+						<div className="row">
+							<div className="span6">
 								<h1>Pod of Madness</h1>
-								<p class="lead">Life is Mad</p>
+								<p className="lead">Life is Mad</p>
 							</div>
-							<div class="span6">
-								<center class="fun">
-									<div class="toaster animated"></div>
+							<div className="span6">
+								<center className="fun">
+									<div className="toaster animated"></div>
 								</center>
-								<center class="logo">
+								<center className="logo">
 									<img src="https://podofmadness.com/assets/logo-transparent.png" />
 								</center>
 							</div>
 						</div>
 					</header>
-					<div class="row">
-						<div class="span12">
+					<div className="row">
+						<div className="span12">
 							<h4>
 								A horror-comedy podcast that makes about as much sense as the
 								genre itself.
@@ -230,72 +235,14 @@ export default function Home({ allPostsData }) {
 							<hr />
 						</div>
 					</div>
-					<div class="row main-content">
-						<div class="span6">
-							<div
-								class="episode__entry"
-								itemscope
-								itemtype="http://schema.org/PodcastEpisode"
-							>
-								<h3>
-									<img src="https://podofmadness.com/assets/new.gif" />
-									<a
-										itemprop="url"
-										href="#"
-										target="_blank"
-										title="Download podcast"
-										class="title-link"
-									>
-										<span itemprop="name">
-											Down With The Sickness: Forrest Has The Coronavirus,
-											Discusses Zombie Movies
-										</span>
-									</a>
-								</h3>
-								<div
-									itemprop="associatedMedia"
-									itemscope
-									itemtype="http://schema.org/MediaObject"
-								>
-									<p>
-										<audio controls>
-											<source
-												src="https://podofmadness.com/assets/E1S1-PodofMadness_01.mp3"
-												type="audio/mpeg"
-											/>
-										</audio>
-										<small
-											class="hidden"
-											itemprop="datePublished"
-											datetime="2020-03-29"
-										>
-											2 months ago
-										</small>
-										<small
-											class="hidden"
-											itemprop="timeRequired"
-											datetime="PT37M"
-										>
-											8 minutes
-										</small>
-									</p>
-									<p class="right">
-										<a
-											itemprop="contentUrl"
-											href="podofmadness.com/assets/E1S1-PodofMadness_01.mp3"
-										>
-											Download
-										</a>
-									</p>
-									<p itemprop="description">
-										Host Jordan Gass-Poore' discusses zombie movies with her
-										friend, Forrest, who was diagnosed with the coronavirus.
-									</p>
-								</div>
-							</div>
+					<div className="row main-content">
+						<div className="span6">
+							<Post post={allPostsData[0]} isNew={true} isFull={false} />
 							<br />
-							<h4 class="pink">Join us on Twitter for this Episode's Prompt</h4>
-							<blockquote class="twitter-tweet">
+							<h4 className="pink">
+								Join us on Twitter for this Episode's Prompt
+							</h4>
+							<blockquote className="twitter-tweet">
 								<p lang="en" dir="ltr">
 									My friend Forrest was diagnosed with the coronavirus. So,
 									talking about zombie movies on the inaugural episode of the
@@ -314,9 +261,10 @@ export default function Home({ allPostsData }) {
 								</a>
 							</blockquote>
 						</div>
-						<div class="span4">
+						<div className="span4">
 							<h4>Listen to our Social SoundBites:</h4>
-							<blockquote class="twitter-tweet">
+							<ATweet twitterUrl="https://twitter.com/podofmadness/status/1259558869891788801?ref_src=twsrc%5Etfw" />
+							<blockquote className="twitter-tweet">
 								<p lang="en" dir="ltr">
 									Host
 									<a href="https://twitter.com/jgasspoore?ref_src=twsrc%5Etfw">
@@ -335,7 +283,7 @@ export default function Home({ allPostsData }) {
 								</a>
 							</blockquote>
 						</div>
-						<div class="span2">
+						<div className="span2">
 							<h4>Previous Episodes</h4>
 							<ul>
 								<li>
@@ -380,6 +328,7 @@ export default function Home({ allPostsData }) {
 
 export async function getStaticProps() {
 	const allPostsData = getSortedPostsData()
+	console.log("allPostsData", allPostsData[0])
 	return {
 		props: {
 			allPostsData,

@@ -220,9 +220,9 @@ export default function FourOhFour() {
 								class="top"
 								fill="none"
 								stroke="#FF0000"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							>
 								<use class="error-3-4" xlinkHref="#error-3-4"></use>
 								<use class="error-2-0" xlinkHref="#error-2-0"></use>
