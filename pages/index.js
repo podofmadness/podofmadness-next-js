@@ -3,55 +3,11 @@ import Link from "next/link"
 import { getSortedPostsData } from "../lib/posts"
 import ATweet from "../components/ATweet"
 import Post from "../components/post"
+import MetaHead from "../components/metaHead"
+import Nav from "../components/Nav"
 
-export default function Home({ allPostsData, allSocialData }) {
-	const jsonLD = {
-		"@context": "http://schema.org",
-
-		"@type": "CollectionPage",
-
-		mainEntityOfPage: {
-			"@type": "WebPage",
-			"@id": "https://podofmadness.com",
-		},
-		headline: "Pod of Madness.",
-		datePublished: "2020-06-22 7:00:51 -0400",
-		dateModified: "2018-06-22 7:00:51 -0400",
-		description:
-			"A horror-comedy podcast that makes about as much sense as the genre itself.",
-		isPartOf: {
-			"@type": ["CreativeWork", "Product", "Blog"],
-			name: "Pod of Madness",
-			productID: "https://podofmadness.com",
-		},
-		image: ["https://podofmadness.com/assets/logo-white-bg.png"],
-
-		isAccessibleForFree: true,
-		author: {
-			"@type": "Person",
-			name: "Jordan Gass-Poore'",
-			description: "Jordan Gass-Poore' is a journalist and podcaster.",
-			sameAs: "http://jgasspoore.com/",
-			image: {
-				"@type": "ImageObject",
-				url:
-					"https://pbs.twimg.com/profile_images/1237825194225553410/vwm8F8EE_400x400.jpg",
-			},
-			givenName: "Jordan",
-			familyName: "Gass-Poore'",
-		},
-		publisher: {
-			"@type": "Project",
-			name: "Pod of Madness",
-			url: "https://podofmadness.com",
-			foundingDate: "2020-1-01",
-			logo: {
-				"@type": "ImageObject",
-
-				url: "https://podofmadness.com/assets/logo-white-bg.png",
-			},
-		},
-	}
+export default function Home({ allPostsData, allSocialData, buildDate }) {
+	var buildDateObj = new Date(buildDate)
 	let morePosts
 	if (allPostsData.length > 1) {
 		var postList = allPostsData.map((aPost) => {
@@ -72,160 +28,14 @@ export default function Home({ allPostsData, allSocialData }) {
 	} else {
 		morePosts = <h4>More episodes coming soon!</h4>
 	}
-	const jsonLDAsString = JSON.stringify(jsonLD)
 	return (
 		<div className="container">
-			<Head>
-				<title>Pod of Madness</title>
-				<link key="meta-icon" rel="icon" href="/favicon.ico" />
-				<meta
-					key="meta-keywords"
-					name="keywords"
-					content="horror, zombies, covid-19, coronavirus, podcast"
-				></meta>
-				<meta key="meta-author" content="Jordan Gass-Poore'"></meta>
-				<meta
-					key="meta-og-title"
-					property="og:title"
-					content="Pod of Madness"
-				></meta>
-				<meta
-					key="meta-og-site_name"
-					property="og:site_name"
-					content="The Pod of Madness Podcast"
-				/>
-				<meta
-					key="meta-og-description"
-					property="og:description"
-					content="Life is Mad."
-				/>
-				<meta
-					key="meta-og-url"
-					property="og:url"
-					content="http://podofmadness.com"
-				/>
-				<meta key="meta-og-locale" property="og:locale" content="en_US" />
-				<meta
-					key="meta-twitter-site"
-					name="twitter:site"
-					content="@podofmadness"
-				/>
-				<meta
-					key="meta-twitter-description"
-					name="twitter:description"
-					content="Life is Mad."
-				/>
-				<meta
-					key="meta-twitter-card"
-					name="twitter:card"
-					content="summary_large_image"
-				/>
-				<meta
-					key="meta-twitter-creator"
-					name="twitter:creator"
-					content="@chronotope"
-				/>
-				<meta
-					key="meta-twitter-title"
-					name="twitter:title"
-					content="Pod of Madness"
-				/>
-				<meta
-					key="meta-og-image"
-					property="og:image"
-					content="https://podofmadness.com/assets/logo-white-bg.png"
-				/>
-				<meta
-					key="meta-twitter-image"
-					name="twitter:image"
-					content="https://podofmadness.com/assets/logo-white-bg.png"
-				/>
-
-				<script key="meta-ld-json" type="application/ld+json">
-					{jsonLDAsString}
-				</script>
-			</Head>
-			<nav>
-				<div className="navbar navbar-fixed-top">
-					<div className="navbar-inner">
-						<div className="container">
-							<a
-								className="btn btn-navbar"
-								data-toggle="collapse"
-								data-target=".nav-collapse"
-							>
-								<span className="icon-bar"></span>
-								<span className="icon-bar"></span>
-								<span className="icon-bar"></span>
-							</a>
-							<a className="brand" href="">
-								Pod of Madness
-							</a>
-							<div className="nav-collapse" id="main-menu">
-								<ul className="nav" id="main-menu-left">
-									<li className="dropdown" id="preview-menu">
-										<a
-											className="dropdown-toggle"
-											data-toggle="dropdown"
-											href="#"
-										>
-											Subscribe <b className="caret"></b>
-										</a>
-										<ul className="dropdown-menu">
-											<li>
-												<a target="_blank" href="feed.xml">
-													RSS
-												</a>
-											</li>
-											<li className="divider"></li>
-											<li>
-												<a
-													target="_blank"
-													href="https://soundcloud.com/pod-of-madness"
-												>
-													Soundcloud
-												</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="https://twitter.com/podofmadness" target="_blank">
-											Follow us on
-											<img
-												height="25px"
-												width="25px"
-												src="https://podofmadness.com/assets/twittergif-transparent.gif"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://www.instagram.com/podofmadness/"
-											target="_blank"
-										>
-											Check out our Insta
-										</a>
-									</li>
-								</ul>
-								<ul className="nav pull-right" id="main-menu-right">
-									<li>
-										<a
-											rel="tooltip"
-											target="_blank"
-											href="https://www.localswitchboard.nyc"
-											title="Static Web Hosting"
-										>
-											A production of Local Switchboard
-											<i className="icon-share-alt"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-
+			<MetaHead
+				pageType="CollectionPage"
+				buildDate={buildDateObj}
+				keywords={["horror", "zombies", "covid-19", "coronavirus", "podcast"]}
+			></MetaHead>
+			<Nav />
 			<main>
 				<div className="container">
 					<header className="jumbotron subhead" id="overview">
@@ -306,6 +116,7 @@ export async function getStaticProps() {
 		props: {
 			allPostsData,
 			allSocialData,
+			buildDate: new Date().toString(),
 		},
 	}
 }
