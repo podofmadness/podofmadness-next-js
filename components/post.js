@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Audio from "./audio"
 import SocialPrompt from "./socialPrompt"
 
@@ -12,15 +13,14 @@ export default function Post({ post, isNew, isSocial, isFull, isFront }) {
 	) : (
 		""
 	)
-	const frontSocial =
-		isFront && isSocial ? (
-			<React.Fragment>
-				<br />
-				<SocialPrompt tweetUrl={post.socialPrompt} />
-			</React.Fragment>
-		) : (
-			""
-		)
+	const frontSocial = isSocial ? (
+		<React.Fragment>
+			<br />
+			<SocialPrompt tweetUrl={post.socialPrompt} />
+		</React.Fragment>
+	) : (
+		""
+	)
 	return (
 		<>
 			<div
@@ -30,15 +30,11 @@ export default function Post({ post, isNew, isSocial, isFull, isFront }) {
 			>
 				<h3>
 					{newPrompt}
-					<a
-						itemProp="url"
-						href="#"
-						target="_blank"
-						title="Download podcast"
-						className="title-link"
-					>
-						<span itemProp="name">{post.title}</span>
-					</a>
+					<Link href={`/posts/${post.id}`}>
+						<a itemProp="url" title="Download podcast" className="title-link">
+							<span itemProp="name">{post.title}</span>
+						</a>
+					</Link>
 				</h3>
 				<div
 					itemProp="associatedMedia"

@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 import { getSortedPostsData } from "../lib/posts"
+import Layout from "../components/layout"
 import ATweet from "../components/ATweet"
 import Post from "../components/post"
 import MetaHead from "../components/metaHead"
@@ -33,7 +34,7 @@ export default function Home({ allPostsData, allSocialData, buildDate }) {
 		morePosts = <h4>More episodes coming soon!</h4>
 	}
 	return (
-		<div className="container">
+		<Layout>
 			<MetaHead
 				pageType="CollectionPage"
 				buildDate={buildDateObj}
@@ -106,7 +107,7 @@ export default function Home({ allPostsData, allSocialData, buildDate }) {
 			`}</style>
 
 			<style jsx global>{``}</style>
-		</div>
+		</Layout>
 	)
 }
 

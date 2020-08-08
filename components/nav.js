@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Nav() {
 	return (
 		<nav>
@@ -13,9 +15,9 @@ export default function Nav() {
 							<span className="icon-bar"></span>
 							<span className="icon-bar"></span>
 						</a>
-						<a className="brand" href="">
-							Pod of Madness
-						</a>
+						<Link href="/">
+							<a className="brand">Pod of Madness</a>
+						</Link>
 						<div className="nav-collapse" id="main-menu">
 							<ul className="nav" id="main-menu-left">
 								<li className="dropdown" id="preview-menu">

@@ -1,15 +1,28 @@
 import Layout from "../../components/layout"
 import { getAllPostIds, getPostData } from "../../lib/posts"
 import Date from "../../components/date"
+import Row from "../../components/Row"
+import ColumnSpan from "../../components/ColumnSpan"
+import Post from "../../components/post"
+import Nav from "../../components/nav"
 
-export default function Post({ postData }) {
+export default function APost({ postData }) {
+	// 	<ColumnSpan spanCount="2">{morePosts}</ColumnSpan>
+	//  <Date dateString={postData.date} />
 	return (
 		<Layout>
-			{postData.title}
-			<br />
-			{postData.id}
-			<br />
-			<Date dateString={postData.date} />
+			<Nav />
+			<Row className="main-content">
+				<ColumnSpan spanCount="10">
+					<Post
+						post={postData}
+						isNew={false}
+						isFull={false}
+						isSocial={true}
+						isFront={false}
+					/>
+				</ColumnSpan>
+			</Row>
 		</Layout>
 	)
 }
