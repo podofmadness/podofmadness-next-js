@@ -21,6 +21,26 @@ export default function Post({ post, isNew, isSocial, isFull, isFront }) {
 	) : (
 		""
 	)
+	const headLine = isFront ? (
+		<h3>
+			{newPrompt}
+			<Link href={`/posts/${post.id}`}>
+				<a itemProp="url" title="Download podcast" className="title-link">
+					<span itemProp="name">{post.title}</span>
+				</a>
+			</Link>
+		</h3>
+	) : (
+		<React.Fragment>
+			<h1>
+				{newPrompt}
+
+				<span itemProp="name">{post.title}</span>
+			</h1>
+			<h2>{post.subtitle}</h2>
+			<br />
+		</React.Fragment>
+	)
 	return (
 		<>
 			<div
@@ -28,14 +48,7 @@ export default function Post({ post, isNew, isSocial, isFull, isFront }) {
 				itemScope
 				itemType="http://schema.org/PodcastEpisode"
 			>
-				<h3>
-					{newPrompt}
-					<Link href={`/posts/${post.id}`}>
-						<a itemProp="url" title="Download podcast" className="title-link">
-							<span itemProp="name">{post.title}</span>
-						</a>
-					</Link>
-				</h3>
+				{headLine}
 				<div
 					itemProp="associatedMedia"
 					itemScope

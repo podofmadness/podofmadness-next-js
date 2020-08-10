@@ -7,6 +7,7 @@ contentUrl: https://podofmadness.com/assets/E1S1-PodofMadness_01.mp3
 description: Host Jordan Gass-Poore' discusses zombie movies with her friend, Forrest, who was diagnosed with the coronavirus.
 socialPrompt: https://twitter.com/podofmadness/status/1244388735782916098?ref_src=twsrc%5Etfw
 type: episode
+keywords: horror, zombies, covid-19, coronavirus, podcast
 ---
 
 Host Jordan Gass-Poore' discusses zombie movies with her friend,

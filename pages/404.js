@@ -159,82 +159,82 @@ export default function FourOhFour() {
 							<rect id="error-top" x="10" y="10" width="307" height="4"></rect>
 						</defs>
 						<g fillRule="evenodd">
-							<g class="glow" fill="black" fill-opacity="1">
+							<g className="glow" fill="black" fillOpacity="1">
 								<use
-									class="error-3-4"
+									className="error-3-4"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-3-4"
 								></use>
 								<use
-									class="error-2-0"
+									className="error-2-0"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-2-0"
 								></use>
 								<use
-									class="error-1-4"
+									className="error-1-4"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-1-4"
 								></use>
 								<use
-									class="error-1-e"
+									className="error-1-e"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-1-e"
 								></use>
 								<use
-									class="error-2-r"
+									className="error-2-r"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-2-r"
 								></use>
 								<use
-									class="error-3-r"
+									className="error-3-r"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-3-r"
 								></use>
 								<use
-									class="error-4-o"
+									className="error-4-o"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-4-o"
 								></use>
 								<use
-									class="error-5-r"
+									className="error-5-r"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-5-r"
 								></use>
 								<use
-									class="error-right"
+									className="error-right"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-right"
 								></use>
 								<use
-									class="error-left"
+									className="error-left"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-left"
 								></use>
 								<use
-									class="error-top"
+									className="error-top"
 									filter="url(#stroke-glow)"
 									xlinkHref="#error-top"
 								></use>
 							</g>
 							<g
-								class="top"
+								className="top"
 								fill="none"
 								stroke="#FF0000"
 								strokeWidth="2"
 								strokeLinecap="round"
 								strokeLinejoin="round"
 							>
-								<use class="error-3-4" xlinkHref="#error-3-4"></use>
-								<use class="error-2-0" xlinkHref="#error-2-0"></use>
-								<use class="error-1-4" xlinkHref="#error-1-4"></use>
-								<use class="error-1-e" xlinkHref="#error-1-e"></use>
-								<use class="error-2-r" xlinkHref="#error-2-r"></use>
-								<use class="error-3-r" xlinkHref="#error-3-r"></use>
-								<use class="error-4-o" xlinkHref="#error-4-o"></use>
-								<use class="error-5-r" xlinkHref="#error-5-r"></use>
-								<use class="error-right" xlinkHref="#error-right"></use>
-								<use class="error-left" xlinkHref="#error-left"></use>
-								<use class="error-top" xlinkHref="#error-top"></use>
+								<use className="error-3-4" xlinkHref="#error-3-4"></use>
+								<use className="error-2-0" xlinkHref="#error-2-0"></use>
+								<use className="error-1-4" xlinkHref="#error-1-4"></use>
+								<use className="error-1-e" xlinkHref="#error-1-e"></use>
+								<use className="error-2-r" xlinkHref="#error-2-r"></use>
+								<use className="error-3-r" xlinkHref="#error-3-r"></use>
+								<use className="error-4-o" xlinkHref="#error-4-o"></use>
+								<use className="error-5-r" xlinkHref="#error-5-r"></use>
+								<use className="error-right" xlinkHref="#error-right"></use>
+								<use className="error-left" xlinkHref="#error-left"></use>
+								<use className="error-top" xlinkHref="#error-top"></use>
 							</g>
 						</g>
 					</svg>
@@ -305,21 +305,21 @@ export default function FourOhFour() {
 							></path>
 						</defs>
 						<g fillRule="evenodd">
-							<g class="glow" fill="black" fill-opacity="1">
+							<g className="glow" fill="black" fillOpacity="1">
 								<use
-									class="quote-top"
+									className="quote-top"
 									filter="url(#fill-glow)"
 									xlinkHref="#quote-top"
 								></use>
 								<use
-									class="quote-bottom"
+									className="quote-bottom"
 									filter="url(#fill-glow)"
 									xlinkHref="#quote-bottom"
 								></use>
 							</g>
-							<g class="top" fill="#FF0000">
-								<use class="quote-top" xlinkHref="#quote-top"></use>
-								<use class="quote-bottom" xlinkHref="#quote-bottom"></use>
+							<g className="top" fill="#FF0000">
+								<use className="quote-top" xlinkHref="#quote-top"></use>
+								<use className="quote-bottom" xlinkHref="#quote-bottom"></use>
 							</g>
 						</g>
 					</svg>
@@ -390,21 +390,21 @@ export default function FourOhFour() {
 								></path>
 							</defs>
 							<g fillRule="evenodd">
-								<g class="glow" fill="black" fill-opacity="1">
+								<g className="glow" fill="black" fillOpacity="1">
 									<use
-										class="link-phrase"
+										className="link-phrase"
 										filter="url(#fill-glow)"
 										xlinkHref="#link-phrase"
 									></use>
 									<use
-										class="link-mark"
+										className="link-mark"
 										filter="url(#fill-glow)"
 										xlinkHref="#link-mark"
 									></use>
 								</g>
-								<g class="top" fill="#FF0000">
-									<use class="link-phrase" xlinkHref="#link-phrase"></use>
-									<use class="link-mark" xlinkHref="#link-mark"></use>
+								<g className="top" fill="#FF0000">
+									<use className="link-phrase" xlinkHref="#link-phrase"></use>
+									<use className="link-mark" xlinkHref="#link-mark"></use>
 								</g>
 							</g>
 						</svg>

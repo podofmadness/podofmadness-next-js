@@ -11,6 +11,9 @@ export default function MetaHead({
 	keywords,
 	children,
 }) {
+	if (!buildDate) {
+		var buildDate = new Date()
+	}
 	const jsonLD = getJsonLd({
 		pageType,
 		headline,
@@ -93,4 +96,12 @@ export default function MetaHead({
 			{children}
 		</Head>
 	)
+}
+
+export async function getStaticProps() {
+	return {
+		props: {
+			buildDate: new Date().toString(),
+		},
+	}
 }

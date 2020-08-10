@@ -63,6 +63,11 @@ export default function Nav() {
 										Check out our Insta
 									</a>
 								</li>
+								<li>
+									<Link href="/contact">
+										<a>Contact</a>
+									</Link>
+								</li>
 							</ul>
 							<ul className="nav pull-right" id="main-menu-right">
 								<li>

@@ -3,7 +3,6 @@ import RSS from "rss"
 import { getSortedPostsData } from "../lib/posts"
 import forwardfeed from "../lib/forwardfeed"
 
-/**
 function dateSortDesc(a, b) {
 	const date1 = new Date(a.data.frontmatter.date)
 	const date2 = new Date(b.data.frontmatter.date)
@@ -20,11 +19,11 @@ function generate() {
 		feed_url: "https://blog.dev/feed.xml",
 	})
 
-	previewItems.sort(dateSortDesc).map(({ id, date, title }) => {
+	previewItems.sort(dateSortDesc).map(({ id, date, title, filename }) => {
 		feed.item({
 			title: title,
 			guid: id,
-			url: `https://blog.dev/blog/${post.fileName}`,
+			url: `https://blog.dev/blog/${filename}`,
 			date: date,
 			description: "",
 			author: "blogger",
@@ -32,12 +31,12 @@ function generate() {
 	})
 
 	const rss = feed.xml({ indent: true })
-	fs.writeFileSync("./.next/static/feed.xml", rss)
+	fs.writeFileSync("./public/feed.xml", rss)
 }
 
 generate()
 
-*/
+/**
 function generate() {
 	var feed = forwardfeed()
 	feed.then((result) => {
@@ -46,3 +45,4 @@ function generate() {
 }
 
 generate()
+ */
