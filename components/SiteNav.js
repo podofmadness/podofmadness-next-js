@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Nav() {
+export default function SiteNav() {
 	return (
 		<nav>
 			<div className="navbar navbar-fixed-top">

@@ -26,6 +26,7 @@
     "rss": "^1.2.2",
     "sass": "^1.26.10",
     "showdown": "^1.9.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "xml": "^1.0.1"
   }
 }

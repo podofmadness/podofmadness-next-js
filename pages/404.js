@@ -325,7 +325,7 @@ export default function FourOhFour() {
 					</svg>
 				</div>
 				<div>
-					<a href="http://podofmadness.com">
+					<a href="https://podofmadness.com">
 						<svg
 							width="107px"
 							viewBox="0 0 107 34"

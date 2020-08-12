@@ -9,6 +9,8 @@ export default function MetaHead({
 	previewImage,
 	buildDate,
 	keywords,
+	urlId,
+	extendedData,
 	children,
 }) {
 	if (!buildDate) {
@@ -18,14 +20,17 @@ export default function MetaHead({
 		pageType,
 		headline,
 		description,
+		urlId,
 		datePublished,
 		previewImage,
 		buildDate,
+		extendedData,
 	})
 	const jsonLDAsString = JSON.stringify(jsonLD)
+	console.log("JSON LD as String", jsonLDAsString)
 	return (
 		<Head>
-			<title>Pod of Madness</title>
+			<title>{headline ? headline : "Pod of Madness"}</title>
 			<link key="meta-icon" rel="icon" href="/favicon.ico" />
 			<meta
 				key="meta-keywords"
@@ -36,7 +41,7 @@ export default function MetaHead({
 			<meta
 				key="meta-og-title"
 				property="og:title"
-				content="Pod of Madness"
+				content={headline ? headline : "Pod of Madness"}
 			></meta>
 			<meta
 				key="meta-og-site_name"
@@ -46,12 +51,12 @@ export default function MetaHead({
 			<meta
 				key="meta-og-description"
 				property="og:description"
-				content="Life is Mad."
+				content={description ? description : "Life is Mad."}
 			/>
 			<meta
 				key="meta-og-url"
 				property="og:url"
-				content="http://podofmadness.com"
+				content={"https://podofmadness.com" + (urlId ? urlId : "")}
 			/>
 			<meta key="meta-og-locale" property="og:locale" content="en_US" />
 			<meta
@@ -62,7 +67,7 @@ export default function MetaHead({
 			<meta
 				key="meta-twitter-description"
 				name="twitter:description"
-				content="Life is Mad."
+				content={description ? description : "Life is Mad."}
 			/>
 			<meta
 				key="meta-twitter-card"
@@ -72,22 +77,30 @@ export default function MetaHead({
 			<meta
 				key="meta-twitter-creator"
 				name="twitter:creator"
-				content="@chronotope"
+				content="@podofmadness"
 			/>
 			<meta
 				key="meta-twitter-title"
 				name="twitter:title"
-				content="Pod of Madness"
+				content={headline ? headline : "Pod of Madness"}
 			/>
 			<meta
 				key="meta-og-image"
 				property="og:image"
-				content="https://podofmadness.com/assets/logo-white-bg.png"
+				content={
+					previewImage
+						? previewImage
+						: "https://podofmadness.com/assets/logo-white-bg.png"
+				}
 			/>
 			<meta
 				key="meta-twitter-image"
 				name="twitter:image"
-				content="https://podofmadness.com/assets/logo-white-bg.png"
+				content={
+					previewImage
+						? previewImage
+						: "https://podofmadness.com/assets/logo-white-bg.png"
+				}
 			/>
 
 			<script key="meta-ld-json" type="application/ld+json">

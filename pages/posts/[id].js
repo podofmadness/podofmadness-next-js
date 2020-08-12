@@ -3,8 +3,8 @@ import { getAllPostIds, getPostData } from "../../lib/posts"
 import Row from "../../components/Row"
 import ColumnSpan from "../../components/ColumnSpan"
 import Post from "../../components/post"
-import Nav from "../../components/nav"
-import MetaHead from "../../components/MetaHead"
+import SiteNav from "../../components/SiteNav"
+import MetaHead from "../../components/metaHead"
 import SocialPrompt from "../../components/socialPrompt"
 
 export default function APost({ postData, buildDate }) {
@@ -14,12 +14,22 @@ export default function APost({ postData, buildDate }) {
 	return (
 		<Layout>
 			<MetaHead
-				pageType="CollectionPage"
+				pageType="episode"
 				headline={postData.title}
+				urlId={"/posts/" + postData.id}
+				description={postData.subtitle ? postData.subtitle : ""}
 				buildDate={buildDateObj}
 				keywords={postData.keywords.split(",")}
+				extendedData={{
+					episodeNumber: postData.episodeNumber,
+					director: "Jordan Gass-Poore'",
+					copyrightHolder: "Jordan Gass-Poore'",
+					productionCompany: "Local Switchboard",
+					editor: "Jordan Gass-Poore'",
+					contentUrl: postData.contentUrl,
+				}}
 			></MetaHead>
-			<Nav />
+			<SiteNav />
 			<Row className="main-content">
 				<ColumnSpan spanCount="8">
 					<Post
@@ -31,8 +41,6 @@ export default function APost({ postData, buildDate }) {
 					/>
 				</ColumnSpan>
 				<ColumnSpan spanCount="4">
-					<h4>Talk with us about this episode on Twitter:</h4>
-					<br />
 					<SocialPrompt tweetUrl={postData.socialPrompt} />
 				</ColumnSpan>
 			</Row>

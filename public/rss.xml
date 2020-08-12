@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cc="http://web.resource.org/cc/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:cc="http://web.resource.org/cc/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<channel>
 		<atom:link href="https://local.dev/forward/" rel="self" type="application/rss+xml"/>
 		<title>The Evolving Faith Podcast</title>
@@ -30,8 +36,8 @@
 		<description><![CDATA[This is a podcast for the wounded, the misfits, and the spiritual refugees to let you know you are not alone. We're here to cultivate love and hope in the wilderness.  We believe the story of God is bigger, wider, more inclusive and welcoming, filled with more love, than we could ever imagine. There's room here for everyone. There's room here for you.]]></description>
 		<itunes:subtitle><![CDATA[]]></itunes:subtitle>
 		<itunes:type>episodic</itunes:type>
-			<itunes:new-feed-url>https://evolving-faith.libsyn.com/rss/</itunes:new-feed-url>
-		
+		<itunes:new-feed-url>https://evolving-faith.libsyn.com/rss/</itunes:new-feed-url>
+
 
 
 		<item>

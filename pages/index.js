@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import ATweet from "../components/ATweet"
 import Post from "../components/post"
 import MetaHead from "../components/metaHead"
-import Nav from "../components/Nav"
+import SiteNav from "../components/SiteNav"
 import MainContainer from "../components/MainContainer"
 import Jumbotron from "../components/Jumbotron"
 import Row from "../components/Row"
@@ -40,7 +40,7 @@ export default function Home({ allPostsData, allSocialData, buildDate }) {
 				buildDate={buildDateObj}
 				keywords={["horror", "zombies", "covid-19", "coronavirus", "podcast"]}
 			></MetaHead>
-			<Nav />
+			<SiteNav />
 			<MainContainer>
 				<Jumbotron>
 					<Row>
